@@ -26,12 +26,16 @@ app.get("/test", stamper, (req, res) => {
     name: "test",
     age: 'test',
     email: 'test@gmail.com',
-    time: req.timeStamp,
+    time: req.timeStamp
   });
 });
 
 app.get('/bad', (req, res) => {
-  res.status(500).send('error');
+  let num = 10;
+  let result = num.forEach((x) => {
+    console.log(x);
+  });
+  res.status(500).send(result);
 });
 
 app.use('*', notFoundHandler);
